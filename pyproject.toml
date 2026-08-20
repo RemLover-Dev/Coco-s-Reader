@@ -1,0 +1,25 @@
+[project]
+name = "coco-reader"
+version = "0.1.0"
+description = "eastern content (mainly manga/manhwa) downloader"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+maintainers = [
+    { name = "Rebin", email = "rebinmahmoudi14@gmail.com" },
+]
+
+keywords = [
+    "python",
+    "cli",
+    "scraper",
+    "manga",
+    "mahwa",
+    "downloader"
+]
+
+dependencies = [
+    "httpx",
+    "beautifulsoup4"
+]
