@@ -8,6 +8,7 @@ license = { text = "MIT" }
 
 maintainers = [
     { name = "Rebin", email = "rebinmahmoudi14@gmail.com" },
+    { name = "Hanekawa", email = "hanekawaarchbishop@gmail.com" }
 ]
 
 keywords = [
