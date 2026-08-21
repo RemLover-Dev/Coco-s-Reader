@@ -95,7 +95,6 @@ class ComicInfo:
     release_year: str = ""
     item_type: str = ""
 
-
 @dataclass(slots=True)
 class ComicChapter:
     title: str
