@@ -63,8 +63,8 @@ class Weebcentral(Provider):
             name = div.find("a").find_all("span")[1].find("span").string
 
             results.append(ComicChapter(
-                title=name, 
-                url=link, 
+                title=name,
+                url=link,
                 identifier=link.split("/")[-1]
             ))
 
@@ -72,7 +72,7 @@ class Weebcentral(Provider):
         return results
 
 
-    async def get_chapters_images(self, item: ComicInfo) -> list[str]:
+    async def get_chapters_images(self, item: ComicChapter) -> list[str]:
         url = f"{self.base_url}/chapters/{item.identifier}/images?is_prev=False&current_page=1&reading_style=long_strip"
         page = await self.safe_get(url)
         soup = BeautifulSoup(page.text, "html.parser")

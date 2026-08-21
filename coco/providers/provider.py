@@ -242,5 +242,5 @@ class Provider(ABC):
         """Return the chapter list for the given item."""
 
     @abstractmethod
-    async def get_chapters_images(self, item: ComicInfo) -> list[str]:
+    async def get_chapters_images(self, item: ComicChapter) -> list[str]:
         """Return the image URLs for the given item."""
