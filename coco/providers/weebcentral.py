@@ -1,4 +1,4 @@
-from coco.providers.provider import Provider, ComicInfo, ComicChapter
+from coco.provider import Provider, ComicInfo, ComicChapter
 from bs4 import BeautifulSoup
 
 class Weebcentral(Provider):

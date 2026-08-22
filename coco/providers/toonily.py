@@ -6,7 +6,7 @@ from urllib.parse import urljoin, urlparse
 import httpx
 from bs4 import BeautifulSoup
 
-from coco.providers.provider import ComicChapter, ComicInfo, ParseError, Provider, RequestError
+from coco.provider import ComicChapter, ComicInfo, ParseError, Provider, RequestError
 
 
 class Toonily(Provider):

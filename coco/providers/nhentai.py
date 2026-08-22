@@ -1,4 +1,4 @@
-from coco.providers.provider import Provider, ComicChapter, ComicInfo, ProviderError
+from coco.provider import Provider, ComicChapter, ComicInfo, ProviderError
 
 
 class Nhentai(Provider):
