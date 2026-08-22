@@ -12,7 +12,7 @@ from urllib.parse import urlparse, unquote
 import httpx
 
 
-DEFAULT_DOWNLOAD_DIR = Path("~/Downloads/CocoDownlaods").expanduser().absolute()
+DEFAULT_DOWNLOAD_DIR = Path("~/Downloads/CocoDownloads").expanduser().absolute()
 DEFAULT_DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
