@@ -2,17 +2,20 @@ from coco.provider import Provider, ComicChapter, ComicInfo, ProviderError
 
 
 class Nhentai(Provider):
+    name = "NHentai"
+    code_name = "nh"
+    referer = "https://nhentai.net/api/v2"
+    
     def __init__(self, proxy = "", *, client = None, timeout = None, follow_redirects = True, headers = None):
         super().__init__(proxy, client=client, timeout=timeout, follow_redirects=follow_redirects, headers=headers)
-        self.base_url = "https://nhentai.net/api/v2"
 
     async def get_cdn(self) -> dict[str, str]:
-        url = self.base_url + "/cdn"
+        url = self.referer + "/cdn"
         page = await self.safe_get(url)
         return page.json()
 
     async def search(self, query: str, sort: str = "popular", page: int=1) -> list[ComicInfo]:
-        url = self.base_url + "/search"
+        url = self.referer + "/search"
         params = {
             "query": query,
             "sort": sort,
@@ -56,7 +59,7 @@ class Nhentai(Provider):
         )]
 
     async def get_chapters_images(self, item: ComicChapter) -> list[str]:
-        url = self.base_url + f"/galleries/{item.identifier}"
+        url = self.referer + f"/galleries/{item.identifier}"
         cdn = await self.get_cdn()
         response = await self.safe_get(url)
 

@@ -12,6 +12,7 @@ from coco.provider import ComicChapter, ComicInfo, ParseError, Provider, Request
 class Toonily(Provider):
     name = "toonily"
     referer = "https://toonily.com"
+    code_name = "tl"
     timeout = 30.0
     max_retries = 5
 

@@ -2,9 +2,12 @@ from coco.provider import Provider, ComicInfo, ComicChapter
 from bs4 import BeautifulSoup
 
 class Weebcentral(Provider):
+    name = "Weebcentral"
+    code_name = "wc"
+    referer = "https://weebcentral.com"
+
     def __init__(self, proxy = "", *, client = None, timeout = None, follow_redirects = True, headers = None):
         super().__init__(proxy, client=client, timeout=timeout, follow_redirects=follow_redirects, headers=headers)
-        self.base_url = "https://weebcentral.com"
 
     async def search(self, query: str) -> list[ComicInfo]:
         params = {
@@ -17,7 +20,7 @@ class Weebcentral(Provider):
             'offset': 0
         }
 
-        page = await self.safe_get(self.base_url+"/search/data", params)
+        page = await self.safe_get(self.referer+"/search/data", params)
         soup = BeautifulSoup(page.text, "html.parser")
 
         results: list[ComicInfo] = []
@@ -53,7 +56,7 @@ class Weebcentral(Provider):
         return results
 
     async def get_chapter_list(self, item: ComicInfo) -> list[ComicChapter]:
-        url = f"{self.base_url}/series/{item.identifier}/full-chapter-list"
+        url = f"{self.referer}/series/{item.identifier}/full-chapter-list"
         page = await self.safe_get(url)
         soup = BeautifulSoup(page.text, "html.parser")
 
@@ -73,7 +76,7 @@ class Weebcentral(Provider):
 
 
     async def get_chapters_images(self, item: ComicChapter) -> list[str]:
-        url = f"{self.base_url}/chapters/{item.identifier}/images?is_prev=False&current_page=1&reading_style=long_strip"
+        url = f"{self.referer}/chapters/{item.identifier}/images?is_prev=False&current_page=1&reading_style=long_strip"
         page = await self.safe_get(url)
         soup = BeautifulSoup(page.text, "html.parser")
 

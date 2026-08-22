@@ -105,6 +105,7 @@ class ComicChapter:
 ##### PROVIDER ABSTRACT BASE CLASS #####
 class Provider(ABC):
     name: str = ""
+    code_name: str = ""
     max_retries: int = 3
     referer: str = ""
     timeout: float = 5.0
